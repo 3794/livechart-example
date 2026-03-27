@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiveChart Example</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f5f5f5;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .info {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .info h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #555;
+      }
+
+      .info code {
+        background: #f0f0f0;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 14px;
+      }
+
+      .chart-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      canvas {
+        touch-action: none;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      button {
+        padding: 8px 16px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background: #0056b3;
+      }
+
+      button:active {
+        background: #003d82;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: #999;
+        text-transform: uppercase;
+      }
+
+      .stat-value {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎯 LiveChart Example</h1>
+
+      <div class="chart-container">
+        <div id="chart"></div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">캔들 개수</div>
+            <div class="stat-value" id="candle-count">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">최고가</div>
+            <div class="stat-value" id="highest-price">-</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">최저가</div>
+            <div class="stat-value" id="lowest-price">-</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">현재가</div>
+            <div class="stat-value" id="current-price">-</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info">
+        <h2>주요 기능</h2>
+        <ul style="margin-left: 20px; line-height: 1.8">
+          <li>실시간 캔들 업데이트</li>
+          <li>줌 (휠, 모바일 터치 핀치 줌)</li>
+          <li>드래그로 팬</li>
+          <li>커서 크로스헤어</li>
+        </ul>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

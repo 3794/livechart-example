@@ -1,0 +1,15 @@
+{
+  "name": "live-chart",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "candlechart.umd.js",
+  "module": "candlechart.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./candlechart.js",
+      "require": "./candlechart.umd.js"
+    }
+  }
+}
