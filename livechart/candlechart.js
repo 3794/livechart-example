@@ -59,7 +59,7 @@ class b {
     if (this.mouseState.x = t.clientX - s.left, this.mouseState.y = t.clientY - s.top, this.mouseState.isInChart && this.draw(), !this.isDragging) return;
     const i = t.clientX - this.dragStartX, e = t.clientY - this.dragStartY, a = Math.abs(i) + Math.abs(e);
     if (!this.isDragDetected && a > this.MANHATTAN_THRESHOLD && (this.isDragDetected = !0), this.isDragDetected) {
-      const h = this.getChartArea(), o = t.clientX > h.x + h.width, r = t.clientY > h.y + h.height;
+      const h = this.getChartArea(), o = this.mouseState.x > h.x + h.width, r = this.mouseState.y > h.y + h.height;
       o && Math.abs(e) > Math.abs(i) ? (this.barSpacing *= 1 + e * 0.01, this.barSpacing = Math.max(
         this.MIN_BAR_SPACING,
         Math.min(this.MAX_BAR_SPACING, this.barSpacing)
